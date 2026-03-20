@@ -1,1 +1,7 @@
-<p>home works!</p>
+<div class="container my-5">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
+        @for (usuario of arrayUsuario(); track usuario._id) {
+        <app-usuario-card [usuario]="usuario" (deleteEmit)="eventDelete($event)"></app-usuario-card>
+        }
+    </div>
+</div>

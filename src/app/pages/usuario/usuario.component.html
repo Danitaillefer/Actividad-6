@@ -1,1 +1,44 @@
-<p>usuario works!</p>
+<div class="container my-5">
+  <div class="card shadow-sm p-4 border-0 rounded-3">
+    <div class="row align-items-center">
+      
+      <div class="col-12 col-md-5 d-flex justify-content-center justify-content-md-end pe-md-5 mb-4 mb-md-0">
+        <div class="position-relative d-flex justify-content-center align-items-center rounded-circle bg-primary overflow-hidden" 
+             style="width: 300px; height: 300px;">
+          <img [src]="miUsuario()?.image" alt="Foto de usuario" class="img-fluid" style="object-fit: cover; height: 110%; width: auto;">
+        </div>
+      </div>
+
+      <div class="col-12 col-md-7 ps-md-5 border-start border-2 border-secondary-subtle">
+        <div class="user-data-container pt-2">
+          
+          <h1 class="fw-light text-secondary mb-1 fs-2">{{miUsuario()?.first_name}}</h1>
+          <h2 class="fw-light text-secondary mb-4 fs-3">{{miUsuario()?.last_name}}</h2>
+
+          <p class="mb-2 text-muted">
+            <span class="fw-bold text-dark me-2">Nombre Usuario:</span>
+            <span class="fw-medium">{{miUsuario()?.username}}</span>
+          </p>
+          <p class="mb-5 text-muted">
+            <span class="fw-bold text-dark me-2">Email:</span>
+            <span class="fw-medium text-break">{{miUsuario()?.email}}</span>
+          </p>
+
+          <div class="btn-group w-100 w-md-75 shadow-sm" role="group" aria-label="Acciones de usuario">
+            <button type="button" class="btn btn-outline-secondary py-2 flex-grow-1" (click)="deleteUsuario(miUsuario()?._id)">
+              Eliminar
+            </button>   
+            <a  [routerLink]="['/updateuser', miUsuario()?._id]" class="btn btn-outline-secondary py-2 flex-grow-1">
+              Actualizar
+            </a>
+            <a routerLink="/home" class="btn btn-outline-secondary py-2 flex-grow-1">
+              Volver a listado
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

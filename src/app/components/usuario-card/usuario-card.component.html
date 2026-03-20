@@ -1,1 +1,31 @@
-<p>usuario-card works!</p>
+<article class="h-100">
+    <div class="card h-100 shadow-sm border-0 overflow-hidden">
+        <div class="position-relative" style="height: 200px; overflow: hidden;">
+            <img [src]="usuario()?.image" class="card-img-top w-100 h-100" style="object-fit: cover;"
+                alt="Avatar de {{usuario()?.first_name}}">
+        </div>
+
+        <div class="card-body d-flex flex-column text-center p-3">
+            <h5 class="card-title text-truncate fw-bold mb-1">
+                {{usuario()?.first_name}} {{usuario()?.last_name}}
+            </h5>
+            <p class="text-muted small mb-3">{{usuario()?.email}}</p>
+
+            <div class="d-flex gap-2 mt-auto">
+                <a class="btn btn-primary btn-sm flex-fill fw-medium d-flex align-items-center justify-content-center"
+                    [routerLink]="['/users', usuario()?._id]">
+                    Ver detalles
+                </a>
+                <a class="btn btn-secondary btn-sm flex-fill fw-medium d-flex align-items-center justify-content-center"
+                    [routerLink]="['/updateuser', usuario()?._id]">
+                    Editar
+                </a>
+                <button type="button"
+                    class="btn btn-danger btn-sm flex-fill fw-medium d-flex align-items-center justify-content-center"
+                    (click)="deleteUsuario(usuario()?._id)">
+                    Borrar
+                </button>
+            </div>
+        </div>
+    </div>
+</article>
