@@ -19,7 +19,7 @@ export class UsuarioCardComponent {
     try{
       let response = await this.usuariosServicios.deleteById(id);
       if(response){
-        toast.success(`El usuario ${response.first_name} ha sido eliminado`)
+        toast.error(`El usuario ${response.first_name} ${response.last_name} ha sido eliminado`)
         console.log("borrado")
         this.deleteEmit.emit(true);
       }
