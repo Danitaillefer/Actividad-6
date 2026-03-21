@@ -22,5 +22,12 @@ export class UsuariosServices {
   deleteById(id: string | undefined): Promise<IUsuario>{
     return lastValueFrom(this.httpClient.delete<IUsuario>(`${this.url}/${id}`))
   }
-  
+
+  insert(IUsuario: IUsuario): Promise<IUsuario>{
+    return lastValueFrom(this.httpClient.post<IUsuario>(this.url, IUsuario))
+  }
+
+  update(id: string | undefined, IUsuario: IUsuario): Promise<IUsuario>{  
+    return lastValueFrom(this.httpClient.put<IUsuario>(`${this.url}/${id}`, IUsuario))
+  }
 }

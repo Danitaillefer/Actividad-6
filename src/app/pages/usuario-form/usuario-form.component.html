@@ -2,17 +2,17 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h2 class="mb-4">Formulario de Usuario</h2>
+            <h2 class="mb-4">{{title}} Usuario</h2>
             <form [formGroup]="usuarioForm" (ngSubmit)="getDataForm()">
                 
                 <div class="mb-3">
-                    <label for="firstName" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="firstName" formControlName="first_name" required>
+                    <label for="first_name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="first_name" formControlName="first_name" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="surname" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" id="surname" formControlName="surname" required>
+                    <label for="last_name" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="last_name" formControlName="last_name" required>
                 </div>
 
                 <div class="mb-3">
