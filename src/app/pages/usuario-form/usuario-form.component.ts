@@ -31,7 +31,7 @@ export class UsuarioFormComponent {
   }
 
   async ngOnInit() {
-    if (this.id) {
+    if (this.id()) {
       this.title = 'Actualizar';
       this.usuario.set(await this.usuariosServicios.getById(this.id()));
       this.usuarioForm.patchValue({

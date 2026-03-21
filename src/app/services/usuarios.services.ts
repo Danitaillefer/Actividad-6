@@ -3,6 +3,14 @@ import { inject, Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { IUsuario } from '../interfaces/iusuario.interface';
 
+type IApiResponse = {
+  page: number;
+  per_page: number;
+  total: number;
+  total_pages: number;
+  results: IUsuario[];
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -11,8 +19,8 @@ export class UsuariosServices {
   private url: string = 'https://peticiones.online/api/users';
   private httpClient = inject(HttpClient);
 
-  getAll(): Promise<any>{
-    return lastValueFrom(this.httpClient.get<any>(this.url));
+  getAll(page: number=1): Promise<IApiResponse>{
+    return lastValueFrom(this.httpClient.get<IApiResponse>(`${this.url}/?page=${page}`));
   }
 
   getById(id: string | undefined): Promise<IUsuario>{
