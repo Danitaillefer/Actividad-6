@@ -15,15 +15,18 @@ export class UsuarioCardComponent {
   usuariosServicios = inject(UsuariosServices);
   @Output() deleteEmit: EventEmitter<boolean> = new EventEmitter();
 
-  async deleteUsuario(id: string | undefined){
-    try{
-      let response = await this.usuariosServicios.deleteById(id);
-      if(response){
-        toast.error(`El usuario ${response.first_name} ${response.last_name} ha sido eliminado`)
-        console.log("borrado")
-        this.deleteEmit.emit(true);
+  async deleteUsuario(id: string | undefined) {
+    try {
+      let confimacion = confirm("Desea borrar el usuario");
+      if (confimacion) {
+        let response = await this.usuariosServicios.deleteById(id);
+        if (response) {
+          toast.error(`El usuario ${response.first_name} ${response.last_name} ha sido eliminado`)
+          console.log("borrado")
+          this.deleteEmit.emit(true);
+        }
       }
-    }catch (err){
+    } catch (err) {
       console.log(err)
     }
   }

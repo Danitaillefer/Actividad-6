@@ -1,1 +1,37 @@
-<p>usuario-form works!</p>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4">Formulario de Usuario</h2>
+            <form [formGroup]="usuarioForm" (ngSubmit)="getDataForm()">
+                
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="firstName" formControlName="first_name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="surname" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="surname" formControlName="surname" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="username" formControlName="username" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Imagen</label>
+                    <input type="text" class="form-control" id="image" formControlName="image">
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -32,10 +32,13 @@ export class UsuarioComponent {
 
   async deleteUsuario(id: string | undefined){
     try{
-      let response = await this.usuariosServices.deleteById(id);
-      if(response._id){
-        toast.error(`Se ha eliminado el usuario ${response.username}`)
-        this.deleteEmit.emit(true)
+      let confirmacion = confirm("Desea eliminar el usuario");
+      if(confirmacion){
+        let response = await this.usuariosServices.deleteById(id);
+        if(response._id){
+          toast.error(`Se ha eliminado el usuario ${response.username}`)
+          this.deleteEmit.emit(true)
+        }
       }
     }catch (err){
       toast.error('No se ha podido elimiar el usuario');
